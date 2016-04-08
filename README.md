@@ -1,6 +1,6 @@
 WebshopBackend
 ===========
-Frontenddelen till detta projekt finn i repot [WebshopFrontend](http://github.com/augustw/webshopfrontend).
+Frontenddelen till detta projekt finns i repot [WebshopFrontend](http://github.com/augustw/webshopfrontend).
 
 Länk till sidan: [webshop.augustw.se](http://webshop.augustw.se)
 
