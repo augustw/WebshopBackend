@@ -12,26 +12,28 @@ namespace WebshopBackend.Controllers
     {
         ProductModel model = new ProductModel();
 
-        [Route("~/api/getallproduct")]
-        public List<Product> GetAllProduct()
-        {
+        
+        public List<Product> GetAll() {
             return model.GetAllProduct();
         }
 
-        [Route("~/api/getallsaleproduct")]
-        public List<Product> GetAllSaleProduct() {
+        public List<Product> GetPopular() {
+            return model.GetPopular();
+        }
+        public List<Product> GetAllSale() {
             return model.GetAllSaleProduct();
         }
 
-        [Route("~/api/getproductbycategory/{categoryId}")]
-        public List<Product> GetProductByCategory(int categoryId)
-        {
-            return model.GetProductByCategory(categoryId);
+        public List<CategoryProduct> GetCategoryProduct() {
+            return model.GetCategoryProduct();
         }
 
-        [Route("~/api/getproductbyid/{productId}")]
-        public Product GetProductById(int productId) {
-            return model.GetProductById(productId);
+        public List<Product> GetByCategoryId(int id) {
+            return model.GetProductByCategoryId(id);
+        }
+
+        public Product GetById(int id) {
+            return model.GetProductById(id);
         }
 
     }

@@ -39,3 +39,6 @@ D:\programmering\projekt\webshop\WebshopBackend\WebshopBackend\bin\System.Web.Ht
 D:\programmering\projekt\webshop\WebshopBackend\WebshopBackend\obj\Debug\WebshopBackend.csprojResolveAssemblyReference.cache
 D:\programmering\projekt\webshop\WebshopBackend\WebshopBackend\obj\Debug\WebshopBackend.dll
 D:\programmering\projekt\webshop\WebshopBackend\WebshopBackend\obj\Debug\WebshopBackend.pdb
+D:\programmering\projekt\webshop\WebshopBackend\WebshopBackend\bin\System.Web.Cors.dll
+D:\programmering\projekt\webshop\WebshopBackend\WebshopBackend\bin\System.Web.Http.Cors.dll
+D:\programmering\projekt\webshop\WebshopBackend\WebshopBackend\bin\System.Web.Http.Cors.xml

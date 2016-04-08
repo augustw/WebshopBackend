@@ -13,15 +13,13 @@ namespace WebshopBackend.Controllers
         private CategoryModel model = new CategoryModel();
 
         //gets all categories
-        [Route("~/api/getallcategory")]
-        public List<Category> Get() {
+        public List<Category> GetAll() {
             List<Category> AllCategories = model.GetAllCategory();
             return AllCategories;
         }
 
         //gets one category by id
-        [Route("~/api/getcategorybyid")]
-        public Category Get(int id) {
+        public Category GetById(int id) {
             return model.GetCategoryById(id);
         }
 

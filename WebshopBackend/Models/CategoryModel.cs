@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Runtime.Serialization;
+using System.Data.SqlClient;
 
 namespace WebshopBackend.Models
 {
@@ -14,24 +15,64 @@ namespace WebshopBackend.Models
     
     public class CategoryModel
     {
+        Connect connect = new Connect();
+        //hämtar alla kategorier från databas
         public List<Category> GetAllCategory() {
             List<Category> ListCategories = new List<Category>();
-
+            
             //hämta från databas
-            //spara ner i ListCategories
+            string query = "SELECT id, name, description FROM Category";
 
-            for (int i = 0; i <= 10; i++) {
-                ListCategories.Add(new Category(i, "namn" + i, "beskrivning" + i));
-            }
+            using (SqlConnection connection = new SqlConnection(connect.getConnectionString())) {
+                SqlCommand command = new SqlCommand(query, connection);
+                try {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read()) {
+                        ListCategories.Add(new Category(reader.GetInt32(0), reader.GetString(1), reader.GetString(2)));
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex) {
+                    Console.WriteLine(ex.Message);
+                }
+            } //end connection
+              //spara ner i ListCategories
+
 
             return ListCategories;
         }
 
         public Category GetCategoryById(int id) {
-            Category CategoryObject = new Category(1, "Byxor", "Mjukisbyxor, jeans osv");
+            Category CategoryObject = null;
+
+            //hämta från databas
+            string query = "SELECT name, description FROM Category WHERE id=" + id;
+
+            using (SqlConnection connection = new SqlConnection(connect.getConnectionString()))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Read();
+                    CategoryObject = new Category(id, reader.GetString(0), reader.GetString(1));
+                    
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            } //end connection
+              //spara ner i ListCategories
 
             return CategoryObject;
         }
+
+        
     }
 
     public class Category {
